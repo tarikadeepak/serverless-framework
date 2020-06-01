@@ -4,7 +4,8 @@
   "main": "src/handles.js",
   "dependencies": {
     "aws-sdk": "2.681.0",
-    "http-errors": "1.7.3"
+    "http-errors": "1.7.3",
+    "serverless": "^1.71.3"
   },
   "scripts": {
     "start": "node node_modules/serverless/bin/serverless offline -s dev",
