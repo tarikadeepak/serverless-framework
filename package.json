@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node node_modules/serverless/bin/serverless offline -s dev",
-    "deploy": "node node_modules/serverless/bin/serverless deploy -v -- stage dev"
+    "deploy": "node node_modules/serverless/bin/serverless deploy"
   },
   "devDependencies": {},
   "repository": {
