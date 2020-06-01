@@ -1,9 +1,14 @@
 env.GIT_URL = 'https://github.com/tarikadeepak/serverless-framework.git'
 
 node ('master') {
+    stage('NPM Build'){
+        sh '''
+            npm install
+        '''
+    }
     stage('Deploy on AWS'){
         sh '''
-            sls deploy
+            serverless deploy
         '''
     }
 }
