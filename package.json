@@ -1,0 +1,13 @@
+{
+    "name": "serverless-framework",
+    "version": "1.0.0",
+    "main": "src/handles.js",
+    "dependencies": {
+        "aws-sdk": "2.681.0",
+        "http-errors": "1.7.3"
+    },
+    "scripts": {
+        "start": "node node_modules/serverless/bin/serverless offline -s dev",
+        "deploy": "node node_modules/serverless/bin/serverless deploy -v -- stage dev"
+    }
+}
