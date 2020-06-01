@@ -1,0 +1,9 @@
+env.GIT_URL = 'https://github.com/tarikadeepak/serverless-framework.git'
+
+node ('docker-agent') {
+    stage('Deploy on AWS'){
+        sh '''
+            sls deploy
+        '''
+    }
+}
