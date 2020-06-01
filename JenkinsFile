@@ -1,7 +1,6 @@
 env.GIT_URL = 'https://github.com/tarikadeepak/serverless-framework.git'
 
 node ('master') {
-    tools{nodejs "NodeJs10.19.0"}
     stage('NPM Build'){
         sh '''
             npm install
