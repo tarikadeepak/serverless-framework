@@ -23,7 +23,7 @@ service: nodejs
 provider:
   name: aws
   runtime: nodejs12.x
-  profile: serverlessUser
+#  profile: serverlessUser
 
 plugins:
   - serverless-s3-sync
