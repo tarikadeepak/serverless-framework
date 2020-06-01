@@ -8,7 +8,7 @@ node ('master') {
     }
     stage('Deploy on AWS'){
         sh '''
-            serverless deploy
+            npm run deploy
         '''
     }
 }
