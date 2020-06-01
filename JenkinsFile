@@ -11,4 +11,4 @@ node ('master') {
             serverless deploy
         '''
     }
-}~/.nvm/versions/node/v10.19.0/bin/npm
+}
