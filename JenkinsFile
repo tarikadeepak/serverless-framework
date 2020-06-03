@@ -29,7 +29,7 @@ pipeline {
         timestamps()
         withCredentials(awsCredentials)
     }
-    node ('master') {
+    stages {
         stage('NPM Build'){
             sh '''
                 npm install
