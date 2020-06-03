@@ -15,6 +15,11 @@
 def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'serverlessUser']]
 
 pipeline {
+    FROM node:master
+
+    ENV SOURCE_DIR=/
+    COPY . $SOURCE_DIR
+    WORKDIR $SOURCE_DIR
 
     agent none
     environment {
