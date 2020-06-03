@@ -15,6 +15,7 @@
 def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'serverlessUser']]
 
 pipeline {
+    tools {nodejs "NodeJS10.19.0"}
     agent any
    
     environment {
