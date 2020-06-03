@@ -17,7 +17,7 @@ def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credential
 pipeline {
 
     agent {
-        dockerfile false
+        none
     }
     environment {
         AWS_REGION = 'eu-west-1'
