@@ -39,7 +39,7 @@ pipeline {
         stage('Deploy on AWS'){
             steps {
             sh '''
-                serverless deploy
+                npm run deploy
             '''
             }
         }
