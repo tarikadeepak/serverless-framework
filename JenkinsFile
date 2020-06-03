@@ -16,9 +16,7 @@ def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credential
 
 pipeline {
 
-    agent {
-        none
-    }
+    agent none
     environment {
         AWS_REGION = 'eu-west-1'
         HOME = '.'
@@ -31,14 +29,18 @@ pipeline {
     }
     stages {
         stage('NPM Build'){
+            steps {
             sh '''
                 npm install
             '''
+            }
         }
         stage('Deploy on AWS'){
+            steps {
             sh '''
                 serverless deploy
             '''
+            }
         }
     }
 }
