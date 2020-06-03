@@ -1,14 +1,40 @@
-env.GIT_URL = 'https://github.com/tarikadeepak/serverless-framework.git'
+// env.GIT_URL = 'https://github.com/tarikadeepak/serverless-framework.git'
 
-node ('master') {
-    stage('NPM Build'){
-        sh '''
-            npm install
-        '''
+// node ('master') {
+//     stage('NPM Build'){
+//         sh '''
+//             npm install
+//         '''
+//     }
+//     stage('Deploy on AWS'){
+//         sh '''
+//             serverless deploy
+//         '''
+//     }
+// }
+def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'serverlessUser']]
+
+pipeline {
+    environment {
+        AWS_REGION = 'eu-west-1'
+        HOME = '.'
     }
-    stage('Deploy on AWS'){
-        sh '''
-            serverless deploy
-        '''
+    options {
+        disableConcurrentBuilds()
+        parallelsAlwaysFailFast()
+        timestamps()
+        withCredentials(awsCredentials)
+    }
+    node ('master') {
+        stage('NPM Build'){
+            sh '''
+                npm install
+            '''
+        }
+        stage('Deploy on AWS'){
+            sh '''
+                serverless deploy
+            '''
+        }
     }
 }
