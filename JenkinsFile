@@ -15,13 +15,15 @@
 def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'serverlessUser']]
 
 pipeline {
-    FROM node:master
-
-    ENV SOURCE_DIR=/
-    COPY . $SOURCE_DIR
-    WORKDIR $SOURCE_DIR
-
-    agent none
+    agent {
+        node {
+            label 'master'
+            ENV SOURCE_DIR=/
+            COPY . $SOURCE_DIR
+            WORKDIR $SOURCE_DIR
+        }
+    }
+   
     environment {
         AWS_REGION = 'eu-west-1'
         HOME = '.'
